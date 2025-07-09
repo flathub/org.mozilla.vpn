@@ -133,6 +133,7 @@ modules:
           is-main-source: true
 
       # Install vendored Rust crates
+        commit: 43a100a37d1ce422f3e073768affa03ad4488744
       - flatpak-vpn-crates.json
       - type: shell
         commands:
