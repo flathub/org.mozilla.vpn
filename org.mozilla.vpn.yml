@@ -52,7 +52,7 @@ modules:
         tag: v1.9
         x-checker-data:
           type: git
-          tag-pattern: ^v([\\d.]+)$
+          tag-pattern: ^v([\d.]+)$
 
   - name: NetworkManager
     buildsystem: meson
@@ -96,7 +96,7 @@ modules:
         tag: 1.52.0
         x-checker-data:
           type: git
-          tag-pattern: ^([\\d.]+)$
+          tag-pattern: ^([\d.]+)$
 
   - name: qt5compat
     buildsystem: cmake-ninja
