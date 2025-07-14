@@ -1,9 +1,9 @@
-# Generated with flatpak-pip-generator --runtime=org.kde.Sdk//6.9 -o flatpak-glean-parser.yaml --yaml --build-only glean_parser==13.0
-name: python3-glean_parser
+# Generated with flatpak-pip-generator -o flatpak-glean-parser.yaml --yaml --build-only glean-parser==13.0.0
+name: python3-glean-parser
 buildsystem: simple
 build-commands:
 - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-  --prefix=${FLATPAK_DEST} "glean_parser==13.0" --no-build-isolation
+  --prefix=${FLATPAK_DEST} "glean-parser==13.0.0" --no-build-isolation
 sources:
 - type: file
   url: https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz
