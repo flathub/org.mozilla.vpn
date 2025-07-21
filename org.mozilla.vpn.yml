@@ -54,6 +54,7 @@ modules:
           type: git
           tag-pattern: ^v([\d.]+)$
 
+        commit: 2730638bf88984b09531813974f9bd14e1a50165
   - name: NetworkManager
     buildsystem: meson
     build-options:
@@ -93,11 +94,12 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git
-        tag: 1.52.0
+        tag: 1.52.1
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
 
+        commit: 826e37b175368a9ce761a575adec520b83958742
   - name: qt5compat
     buildsystem: cmake-ninja
     sources:
@@ -133,6 +135,7 @@ modules:
           is-main-source: true
 
       # Install vendored Rust crates
+        commit: 43a100a37d1ce422f3e073768affa03ad4488744
       - flatpak-vpn-crates.json
       - type: shell
         commands:
