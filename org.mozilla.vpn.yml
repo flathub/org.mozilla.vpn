@@ -50,11 +50,11 @@ modules:
       - type: git
         url: https://github.com/jpirko/libndp.git
         tag: v1.9
+        commit: 2730638bf88984b09531813974f9bd14e1a50165
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
 
-        commit: 2730638bf88984b09531813974f9bd14e1a50165
   - name: NetworkManager
     buildsystem: meson
     build-options:
@@ -95,11 +95,11 @@ modules:
       - type: git
         url: https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git
         tag: 1.52.1
+        commit: 826e37b175368a9ce761a575adec520b83958742
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
 
-        commit: 826e37b175368a9ce761a575adec520b83958742
   - name: qt5compat
     buildsystem: cmake-ninja
     sources:
@@ -127,6 +127,7 @@ modules:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
         tag: v2.30.0
+        commit: b6b0cffce4c9af45c6b5a5fc19a33c95639d2ff2
         x-checker-data:
           type: json
           url: https://mozilla.github.io/mozillavpn-product-details/mozillavpn.json
@@ -135,7 +136,6 @@ modules:
           is-main-source: true
 
       # Install vendored Rust crates
-        commit: b6b0cffce4c9af45c6b5a5fc19a33c95639d2ff2
       - flatpak-vpn-crates.json
       - type: shell
         commands:
