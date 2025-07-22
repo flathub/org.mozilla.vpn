@@ -1,9 +1,9 @@
-# Generated with flatpak-pip-generator --runtime=org.kde.Sdk//6.9 -o flatpak-glean-parser.yaml --yaml --build-only glean_parser==13.0
-name: python3-glean_parser
+# Generated with flatpak-pip-generator -o flatpak-glean-parser.yaml --yaml --build-only glean-parser==13.0.0
+name: python3-glean-parser
 buildsystem: simple
 build-commands:
 - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-  --prefix=${FLATPAK_DEST} "glean_parser==13.0" --no-build-isolation
+  --prefix=${FLATPAK_DEST} "glean-parser==13.0.0" --no-build-isolation
 sources:
 - type: file
   url: https://files.pythonhosted.org/packages/b2/97/5d42485e71dfc078108a86d6de8fa46db44a1a9295e89c5d6d4a06e23a62/markupsafe-3.0.2.tar.gz
@@ -30,8 +30,8 @@ sources:
   url: https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl
   sha256: 85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67
 - type: file
-  url: https://files.pythonhosted.org/packages/a2/3d/023389198f69c722d039351050738d6755376c8fd343e91dc493ea485905/jsonschema-4.24.0-py3-none-any.whl
-  sha256: a462455f19f5faf404a7902952b6f0e3ce868f3ee09a359b05eca6673bd8412d
+  url: https://files.pythonhosted.org/packages/fe/54/c86cd8e011fe98803d7e382fd67c0df5ceab8d2b7ad8c5a81524f791551c/jsonschema-4.25.0-py3-none-any.whl
+  sha256: 24c2e8da302de79c8b9382fee3e76b355e44d2a4364bb207159ce10b517bd716
 - type: file
   url: https://files.pythonhosted.org/packages/01/0e/b27cdbaccf30b890c40ed1da9fd4a3593a5cf94dae54fb34f8a4b74fcd3f/jsonschema_specifications-2025.4.1-py3-none-any.whl
   sha256: 4653bffbd6584f7de83a67e0d620ef16900b390ddc7939d56684d6c81e33f1af

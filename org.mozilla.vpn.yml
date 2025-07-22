@@ -33,9 +33,13 @@ modules:
       - type: file
         url: https://files.pythonhosted.org/packages/2e/77/87d7bfabfc4e821caa35481a2ff6ae0b73e6a391bb6b343db2c91c2b9844/rpds_py-0.26.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
         sha256: 82b165b07f416bdccf5c84546a484cc8f15137ca38325403864bfdf2b5b72f6a
+        only_arches:
+          - x86_64
       - type: file
         url: https://files.pythonhosted.org/packages/ad/91/c448ed45efdfdade82348d5e7995e15612754826ea640afc20915119734f/rpds_py-0.26.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
         sha256: 3e1157659470aa42a75448b6e943c895be8c70531c43cb78b9ba990778955582
+        only_arches:
+          - aarch64
     cleanup:
       - '*'
 
@@ -50,6 +54,7 @@ modules:
       - type: git
         url: https://github.com/jpirko/libndp.git
         tag: v1.9
+        commit: 2730638bf88984b09531813974f9bd14e1a50165
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
@@ -93,7 +98,8 @@ modules:
     sources:
       - type: git
         url: https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git
-        tag: 1.52.0
+        tag: 1.52.1
+        commit: 826e37b175368a9ce761a575adec520b83958742
         x-checker-data:
           type: git
           tag-pattern: ^([\d.]+)$
@@ -105,17 +111,6 @@ modules:
         tag: v6.9.0
         url: https://github.com/qt/qt5compat
 
-  - name: mozillavpn-appstream
-    buildsystem: simple
-    build-commands:
-      - install -Dm644 org.mozilla.vpn.metainfo.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.metainfo.xml"
-      - install -Dm644 org.mozilla.vpn.releases.xml "${FLATPAK_DEST}/share/metainfo/${FLATPAK_ID}.releases.xml"
-    sources:
-      - type: file
-        path: org.mozilla.vpn.metainfo.xml
-      - type: file
-        path: org.mozilla.vpn.releases.xml
-
   - name: mozillavpn
     buildsystem: cmake-ninja
     config-opts:
@@ -124,13 +119,19 @@ modules:
     sources:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
-        tag: v2.29.0
+        tag: v2.30.0
+        commit: b6b0cffce4c9af45c6b5a5fc19a33c95639d2ff2
         x-checker-data:
           type: json
           url: https://mozilla.github.io/mozillavpn-product-details/mozillavpn.json
           tag-query: ("v" + .latest["LINUX"])
           timestamp-query: .releases[.latest["LINUX"]].date
           is-main-source: true
+
+      - type: file
+        path: org.mozilla.vpn.releases.xml
+        dest: linux/extra
+        dest-filename: org.mozilla.vpn.releases.xml.in
 
       # Install vendored Rust crates
       - flatpak-vpn-crates.json
