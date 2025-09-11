@@ -64,7 +64,7 @@ modules:
         commit: a4a065ccb69376014f3e03f4134a0354c9d18848
         x-checker-data:
           type: git
-          tag-pattern: ^v([\d.]+)-rc([\d]+)$
+          tag-pattern: ^v([\d.]+-rc\d+)$
           is-main-source: true
 
       - type: file
