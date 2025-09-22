@@ -12,7 +12,6 @@ finish-args:
   - --socket=wayland
   - --device=dri
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --system-talk-name=org.freedesktop.NetworkManager
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
 cleanup:
@@ -44,65 +43,6 @@ modules:
       - '*'
 
   - flatpak-glean-parser.yaml
-  - shared-modules/intltool/intltool-0.51.json
-
-  - name: libndp
-    buildsystem: autotools
-    cleanup:
-      - /bin
-    sources:
-      - type: git
-        url: https://github.com/jpirko/libndp.git
-        tag: v1.9
-        commit: 2730638bf88984b09531813974f9bd14e1a50165
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
-
-  - name: NetworkManager
-    buildsystem: meson
-    build-options:
-      cflags: -ltinfo
-      cxxflags: -ltinfo
-    config-opts:
-      - -Dsystemdsystemunitdir=no
-      - -Ddbus_conf_dir=/app/etc/dbus-1/system.d
-      - -Diptables=/usr/bin/true
-      - -Ddnsmasq=/usr/bin/true
-      - -Dsession_tracking=no
-      - -Dselinux=false
-      - -Dsystemd_journal=false
-      - -Dlibaudit=no
-      - -Dwext=false
-      - -Dwifi=false
-      - -Dppp=false
-      - -Dmodem_manager=false
-      - -Dovs=false
-      - -Dnmcli=false
-      - -Dnmtui=false
-      - -Dnm_cloud_setup=false
-      - -Dintrospection=true
-      - -Dvapi=false
-      - -Ddocs=false
-      - -Dtests=no
-      - -Dfirewalld_zone=false
-      - -Dlibpsl=false
-      - -Dqt=false
-      - -Dpolkit=false
-    cleanup:
-      - /sbin
-      - /etc
-      - /libexec
-      - /var
-      - /share/bash-completion
-    sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git
-        tag: 1.52.1
-        commit: 826e37b175368a9ce761a575adec520b83958742
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
 
   - name: qt5compat
     buildsystem: cmake-ninja
@@ -119,8 +59,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
-        tag: v2.30.0
-        commit: b6b0cffce4c9af45c6b5a5fc19a33c95639d2ff2
+        tag: v2.31.0
+        commit: 4372c09e49a2de646cbe397618f592a0a568e558
         x-checker-data:
           type: json
           url: https://mozilla.github.io/mozillavpn-product-details/mozillavpn.json
