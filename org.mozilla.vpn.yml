@@ -43,20 +43,6 @@ modules:
       - '*'
 
   - flatpak-glean-parser.yaml
-  - shared-modules/intltool/intltool-0.51.json
-
-  - name: libndp
-    buildsystem: autotools
-    cleanup:
-      - /bin
-    sources:
-      - type: git
-        url: https://github.com/jpirko/libndp.git
-        tag: v1.9
-        commit: 2730638bf88984b09531813974f9bd14e1a50165
-        x-checker-data:
-          type: git
-          tag-pattern: ^v([\d.]+)$
 
   - name: qt5compat
     buildsystem: cmake-ninja
