@@ -12,7 +12,6 @@ finish-args:
   - --socket=wayland
   - --device=dri
   - --talk-name=org.kde.StatusNotifierWatcher
-  - --system-talk-name=org.freedesktop.NetworkManager
 build-options:
   append-path: /usr/lib/sdk/rust-stable/bin
 cleanup:
@@ -58,51 +57,6 @@ modules:
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+)$
-
-  - name: NetworkManager
-    buildsystem: meson
-    build-options:
-      cflags: -ltinfo
-      cxxflags: -ltinfo
-    config-opts:
-      - -Dsystemdsystemunitdir=no
-      - -Ddbus_conf_dir=/app/etc/dbus-1/system.d
-      - -Diptables=/usr/bin/true
-      - -Ddnsmasq=/usr/bin/true
-      - -Dsession_tracking=no
-      - -Dselinux=false
-      - -Dsystemd_journal=false
-      - -Dlibaudit=no
-      - -Dwext=false
-      - -Dwifi=false
-      - -Dppp=false
-      - -Dmodem_manager=false
-      - -Dovs=false
-      - -Dnmcli=false
-      - -Dnmtui=false
-      - -Dnm_cloud_setup=false
-      - -Dintrospection=true
-      - -Dvapi=false
-      - -Ddocs=false
-      - -Dtests=no
-      - -Dfirewalld_zone=false
-      - -Dlibpsl=false
-      - -Dqt=false
-      - -Dpolkit=false
-    cleanup:
-      - /sbin
-      - /etc
-      - /libexec
-      - /var
-      - /share/bash-completion
-    sources:
-      - type: git
-        url: https://gitlab.freedesktop.org/NetworkManager/NetworkManager.git
-        tag: 1.54.1
-        commit: 2450d860c67a6a124a3a56d94bd54bfc7de295f7
-        x-checker-data:
-          type: git
-          tag-pattern: ^([\d.]+)$
 
   - name: qt5compat
     buildsystem: cmake-ninja
