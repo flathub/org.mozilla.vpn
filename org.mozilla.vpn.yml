@@ -50,6 +50,7 @@ modules:
     sources:
       - type: git
         tag: v6.10.1
+        commit: dbc825317c030701bc454bcb5c332aa13dcdaf94
         url: https://github.com/qt/qt5compat
 
   - name: mozillavpn
