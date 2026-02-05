@@ -60,8 +60,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
-        tag: v2.32.0
-        commit: 62e174ef6df2a5e5a002d182732015f2057b0402
+        tag: v2.33.0
+        commit: 02b8cb22ba0b6bb42102278728a60cd28f8bc269
         x-checker-data:
           type: json
           url: https://mozilla.github.io/mozillavpn-product-details/mozillavpn.json
