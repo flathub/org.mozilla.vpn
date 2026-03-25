@@ -1,4 +1,7 @@
 <releases>
+  <release version="2.35.0" date="2026-03-25">
+    <url type="details">https://github.com/mozilla-mobile/mozilla-vpn-client/releases/v2.35.0</url>
+  </release>
   <release version="2.34.0" date="2026-03-10">
     <url type="details">https://github.com/mozilla-mobile/mozilla-vpn-client/releases/v2.34.0</url>
   </release>
