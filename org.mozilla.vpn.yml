@@ -1,6 +1,6 @@
 app-id: org.mozilla.vpn
 runtime: org.kde.Platform
-runtime-version: '6.9'
+runtime-version: '6.10'
 sdk: org.kde.Sdk
 sdk-extensions:
   - org.freedesktop.Sdk.Extension.rust-stable
@@ -21,35 +21,23 @@ cleanup:
   - /share/man
   - /share/doc
 modules:
-  # Dependency for jsonschema and glean-parser, needs to be installed as a
-  # binary wheel because it has a bunch of complex rust dependencies that are
-  # difficult to replicate offline.
-  - name: python3-rpds
+  - name: python3-pyyaml
     buildsystem: simple
     build-commands:
       - pip3 install --verbose --exists-action=i --no-index --find-links="file://${PWD}"
-        --prefix=${FLATPAK_DEST} "rpds-py" --no-build-isolation
+        --prefix=${FLATPAK_DEST} "PyYAML" --no-build-isolation
     sources:
       - type: file
-        url: https://files.pythonhosted.org/packages/2e/77/87d7bfabfc4e821caa35481a2ff6ae0b73e6a391bb6b343db2c91c2b9844/rpds_py-0.26.0-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl
-        sha256: 82b165b07f416bdccf5c84546a484cc8f15137ca38325403864bfdf2b5b72f6a
-        only_arches:
-          - x86_64
-      - type: file
-        url: https://files.pythonhosted.org/packages/ad/91/c448ed45efdfdade82348d5e7995e15612754826ea640afc20915119734f/rpds_py-0.26.0-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl
-        sha256: 3e1157659470aa42a75448b6e943c895be8c70531c43cb78b9ba990778955582
-        only_arches:
-          - aarch64
+        url: https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz
+        sha256: d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f
     cleanup:
       - '*'
-
-  - flatpak-glean-parser.yaml
 
   - name: qt5compat
     buildsystem: cmake-ninja
     sources:
       - type: git
-        tag: v6.9.0
+        tag: v6.10.1
         url: https://github.com/qt/qt5compat
 
   - name: mozillavpn
@@ -60,8 +48,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
-        tag: v2.36.0
-        commit: ed1498c2398e00b6b42ce10ed039ea3b8e6e9d68
+        tag: v2.37.0
+        commit: ecbf60d027ef028b5ba04cddb30a7f2693ba885d
         x-checker-data:
           type: json
           url: https://mozilla.github.io/mozillavpn-product-details/mozillavpn.json
