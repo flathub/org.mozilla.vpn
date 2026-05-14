@@ -72,7 +72,6 @@ jobs:
         if: steps.check-updates.outputs.upstream == 'true'
         run: |
           python tools/cargo/flatpak-cargo-generator.py -o flatpak-vpn-crates.json upstream/Cargo.lock
-          python tools/pip/flatpak-pip-generator.py -o flatpak-glean-parser.yaml --yaml --build-only $(cat upstream/requirements.in | grep ^glean-parser)
 
       - name: Create pull request
         uses: docker://ghcr.io/flathub/flatpak-external-data-checker:latest
