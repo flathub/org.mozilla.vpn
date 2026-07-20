@@ -49,8 +49,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
-        tag: v2.39.0-rc1
-        commit: 3990162c496fdd02b4d1614da326a65771bfd2e8
+        tag: v2.39.0-rc2
+        commit: 226e58fa555d0ee056ee3d7591dfdc6693ba64ce
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+-rc\d+)$
