@@ -67,6 +67,11 @@ jobs:
         run: |
           curl -sSL -o org.mozilla.vpn.releases.xml \
             https://mozilla.github.io/mozillavpn-product-details/org.mozilla.vpn.releases.xml
+          
+          UPSTREAM_TAG=$(git -C upstream tag --points-at HEAD)
+          if [[ -n "${UPSTREAM_TAG}" ]]; then
+            .github/insert-prerelease.py -t "${UPSTREAM_TAG}" -i org.mozilla.vpn.releases.xml
+          fi
 
       - name: Update dependencies
         if: steps.check-updates.outputs.upstream == 'true'
