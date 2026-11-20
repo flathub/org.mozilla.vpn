@@ -33,14 +33,6 @@ modules:
     cleanup:
       - '*'
 
-  - name: qt5compat
-    buildsystem: cmake-ninja
-    sources:
-      - type: git
-        tag: v6.10.1
-        commit: dbc825317c030701bc454bcb5c332aa13dcdaf94
-        url: https://github.com/qt/qt5compat
-
   - name: mozillavpn
     buildsystem: cmake-ninja
     config-opts:
@@ -49,8 +41,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/mozilla-mobile/mozilla-vpn-client
-        tag: v2.40.0-rc8
-        commit: eb5e9943d2ef4e465040c27a995da3c822c65a32
+        tag: v2.41.0-rc2
+        commit: 46c0995ee3baa736c7e16347039234e26ff8c594
         x-checker-data:
           type: git
           tag-pattern: ^v([\d.]+-rc\d+)$
